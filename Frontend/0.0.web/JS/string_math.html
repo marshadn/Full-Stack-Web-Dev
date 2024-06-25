@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>String and Number Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>String Manipulation</h1>
+    <input type="text" id="stringInput" placeholder="Enter a string">
+    <br>
+    <button onclick="showResult('length')">Get Length</button>
+    <button onclick="showResult('toUpperCase')">Convert to Uppercase</button>
+    <button onclick="showResult('toLowerCase')">Convert to Lowercase</button>
+    <br>
+    <div id="result"></div>
+
+    <h1>Number Manipulation</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <br>
+    <button onclick="showNumberResult('square')">Square</button>
+    <button onclick="showNumberResult('floor')">Floor Value</button>
+    <button onclick="showNumberResult('sqrt')">Square Root</button>
+    <button onclick="showNumberResult('ceil')">Ceiled Value</button>
+    <br>
+    <div id="numberResult"></div>
+
+    <script>
+        function showResult(operation) {
+            var inputString = document.getElementById('stringInput').value;
+            var resultElement = document.getElementById('result');
+
+            switch (operation) {
+                case 'length':
+                    resultElement.innerText = 'Length: ' + inputString.length;
+                    break;
+                case 'toUpperCase':
+                    resultElement.innerText = 'Uppercase: ' + inputString.toUpperCase();
+                    break;
+                case 'toLowerCase':
+                    resultElement.innerText = 'Lowercase: ' + inputString.toLowerCase();
+                    break;
+                default:
+                    resultElement.innerText = 'Invalid operation';
+            }
+        }
+
+        function showNumberResult(operation) {
+            var inputNumber = parseFloat(document.getElementById('numberInput').value);
+            var numberResultElement = document.getElementById('numberResult');
+
+            switch (operation) {
+                case 'square':
+                    numberResultElement.innerText = 'Square: ' + (inputNumber * inputNumber);
+                    break;
+                case 'floor':
+                    numberResultElement.innerText = 'Floor: ' + Math.floor(inputNumber);
+                    break;
+                case 'sqrt':
+                    numberResultElement.innerText = 'Square Root: ' + Math.sqrt(inputNumber);
+                    break;
+                case 'ceil':
+                    numberResultElement.innerText = 'Ceiled Value: ' + Math.ceil(inputNumber);
+                    break;
+                default:
+                    numberResultElement.innerText = 'Invalid operation';
+            }
+        }
+    </script>
+
+</body>
+</html>

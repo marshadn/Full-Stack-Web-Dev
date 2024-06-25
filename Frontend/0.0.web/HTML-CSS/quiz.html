@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #quiz {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .answer:hover {
+            background-color: #ccc;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz">
+        <h1>Quiz App</h1>
+        <div class="question" id="question">Question goes here?</div>
+        <div class="answer" id="option1">Option 1</div>
+        <div class="answer" id="option2">Option 2</div>
+        <div class="answer" id="option3">Option 3</div>
+        <div class="answer" id="option4">Option 4</div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Paris", "Berlin", "Madrid", "Rome"],
+                answer: "Paris"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Mars", "Venus", "Jupiter", "Saturn"],
+                answer: "Mars"
+            },
+            {
+                question: "What is the largest mammal in the world?",
+                options: ["Elephant", "Giraffe", "Blue Whale", "Hippopotamus"],
+                answer: "Blue Whale"
+            }
+        ];
+
+        const questionElement = document.getElementById("question");
+        const optionElements = document.querySelectorAll(".answer");
+        const resultElement = document.getElementById("result");
+
+        let currentQuestion = 0;
+
+        function showQuestion() {
+            if (currentQuestion < questions.length) {
+                questionElement.textContent = questions[currentQuestion].question;
+
+                for (let i = 0; i < optionElements.length; i++) {
+                    optionElements[i].textContent = questions[currentQuestion].options[i];
+                }
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const score = calculateScore();
+            resultElement.textContent = `Your Score: ${score}/${questions.length}`;
+        }
+
+        function calculateScore() {
+            let score = 0;
+            for (const question of questions) {
+                const selectedOption = document.querySelector(`#${question.answer}`);
+                if (selectedOption.classList.contains("selected")) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        function selectAnswer(event) {
+            const selectedOption = event.target;
+            if (selectedOption.classList.contains("answer")) {
+                optionElements.forEach(option => option.classList.remove("selected"));
+                selectedOption.classList.add("selected");
+                currentQuestion++;
+                setTimeout(showQuestion, 500);
+            }
+        }
+
+        optionElements.forEach(option => option.addEventListener("click", selectAnswer));
+        showQuestion();
+    </script>
+</body>
+</html>
