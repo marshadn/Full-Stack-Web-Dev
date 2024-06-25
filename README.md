@@ -1,6 +1,6 @@
 # Full Stack Web Development Course
 
-Welcome to the Full Stack Web Development course repository. This course covers a comprehensive curriculum designed to equip you with the skills needed to build modern web applications, both front-end and back-end.
+Welcome to the Full Stack Web Development course repository. This course covers a comprehensive curriculum designed to equip  with the skills needed to build modern web applications, both front-end and back-end.
 
 ## Table of Contents
 
@@ -184,12 +184,12 @@ Welcome to the Full Stack Web Development course repository. This course covers 
 
 ## Getting Started
 
-To get started with the course, follow these steps:
+To get started with the repo, follow these steps:
 
 1. **Clone the repository**: 
    ```bash
-   git clone https://github.com/yourusername/fullstack-webdev-course.git
-   cd fullstack-webdev-course
+   git clone https://github.com/marshadn/Full-Stack-Web-Dev.git
+   cd Full-Stack-Web-Dev
 
 2. **Install dependencies**:<br>
      For frontend projects:-
@@ -207,7 +207,7 @@ To get started with the course, follow these steps:
      ```
      For backend projects:-
      ``` node
-           node app.js
+   node app.js
      ```
 
 
